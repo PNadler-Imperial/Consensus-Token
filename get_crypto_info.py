@@ -31,11 +31,11 @@ def aggregate_data():
 	aggregate_df.to_csv("./aggregated_marketcap_till_" + i + ".csv", index = False)
 
 def get_coin_list():
-	i = "20180211"
+	i = "20190601"
 	aggregate_df = pd.read_csv("./aggregated_marketcap_till_" + i + ".csv")
 	#aggregate_df.Name.value_counts().to_csv('./coin_counts.csv')
 	
-	df = aggregate_df.loc[aggregate_df["Date"] == 20180211]
+	df = aggregate_df.loc[aggregate_df["Date"] == 20190601]
 	
 	pd.options.mode.chained_assignment = None
 	df['Market_Cap'] = map(lambda x: x.replace("$","").replace(",", ""), df['Market_Cap'])
